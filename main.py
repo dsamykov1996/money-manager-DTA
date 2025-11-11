@@ -30,8 +30,10 @@ def show_list(shopping_list):
         # print(i, item)
         print(f"{i}. {item["name"]} - {item["quantity"]} x {item["price"]}€")
 
-def count_total():
-    pass
+def count_total(shopping_list):
+    total = sum(item["quantity"] * item["price"] for item in shopping_list)
+    print(f"\nЗагальна сума: {total}€")
+    
 
 def save_to_file():
     pass
@@ -69,7 +71,7 @@ def main():
                 case 2:
                     show_list(shopping_list)
                 case 3:
-                    count_total()
+                    count_total(shopping_list)
                 case 4:
                     save_to_file()
                 case 5:
@@ -83,3 +85,4 @@ def main():
         except ValueError:
             print("Enter number 1-6!!")
 main()
+
