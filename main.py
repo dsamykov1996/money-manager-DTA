@@ -28,16 +28,55 @@ def show_list(shopping_list):
     print("\nYour list: ")
     for i, item in enumerate(shopping_list, start=1):
         # print(i, item)
-        print(f"{i}. {item["name"]} - {item["quantity"]} x {item["price"]}€")
+        print(f'{i}. {item["name"]} - {item["quantity"]} x {item["price"]}€')
 
-def count_total():
-    pass
+def count_total(shopping_list):
+    total = 0
+    for item in shopping_list:
+        total += item["quantity"] * item["price"]
+    print(f"Total price: {total:2f}€")    
 
-def save_to_file():
-    pass
+def save_to_file(shopping_list):
+
+    # "w" - перезаписывает файл если есть или создает новый если его нет
+    # "a" - дописывает (по умолчанию в существующий файл, если файла нет то ошибка)
+
+
+    # file = open("text.txt", "w", encoding="utf-8")
+    # file.write("Ok")
+    # file.write("2 line")
+    # file.write("new line")
+    # file.close()
+
+    with open("text.txt", "w", encoding="utf-8") as f:
+        # f.file.write("Ok")
+        # f.file.write("2 line")
+        # f.file.write("new line")
+
+        for i, item in enumerate(shopping_list, start=1):
+            # print(i, item)
+            f.write(f"{i}. {item["name"]} - {item["quantity"]} x {item["price"]}€")
+    print("✅Shopping_list saved to text.txt")        
+
 
 def load_from_file():
-    pass
+    shopping_list = []
+    with open("text.txt", "w", encoding="utf-8") as f:
+        for line in f:
+            line_list = line.strip()[:-1].split()
+            # for i in range(1, len(line_list), 2):
+            name, quantity, price = line_list[1], line_list[3], line_list[5]
+            item = {
+                    "name": name,
+                    "quantity": int(quantity),
+                    "price": float(price)
+                } 
+            shopping_list.append(item)
+    return shopping_list    
+
+
+
+
 
 def main():
     print("🛒 Вітаю у менеджері покупок!")
@@ -69,9 +108,9 @@ def main():
                 case 2:
                     show_list(shopping_list)
                 case 3:
-                    count_total()
+                    count_total(shopping_list)
                 case 4:
-                    save_to_file()
+                    save_to_file(shopping_list)
                 case 5:
                     load_from_file()
                 case 6:
@@ -82,4 +121,7 @@ def main():
                     
         except ValueError:
             print("Enter number 1-6!!")
-main()
+
+if __name__ == "__main__":            
+    main()
+
