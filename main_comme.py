@@ -80,7 +80,7 @@ def load_from_file():
     
     try:
         # відкриваємо файл у режимі читання ("r")
-        with open("text.txt", "r", encoding="utf-8") as f:
+        with open("text.txt", "w", encoding="utf-8") as f:
             # читаємо файл рядок за рядком
             for line in f:
                 # приклад рядка у файлі:
