@@ -21,3 +21,27 @@ Money manager
 Введіть кількість: 2  
 Введіть ціну за одиницю: 25  
 ✅ Хліб додано до списку!
+
+#----------------------------------
+
+**Project: “Purchase Manager”**
+
+Create a small console application that helps the user plan purchases, calculate the total cost, save data to a file, and load it again on the next launch.
+
+🛒 **Welcome to the Purchase Manager!**
+
+Menu:
+
+1. Add a purchase
+2. View the list
+3. Calculate the total amount
+4. Save to file
+5. Load from file
+6. Exit
+
+Your choice: 1
+Enter the product name: Bread
+Enter the quantity: 2
+Enter the price per unit: 25
+✅ Bread has been added to the list!
+
